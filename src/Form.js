@@ -9,56 +9,31 @@ class Form extends Component {
             email: ''
         }
         this.handleChange = this.handleChange.bind(this);
+        
     }
     render() {
        return (
-       <form className='react-form' onSubmit={this.handleSubmit}>
-  <h1>Say Hi!</h1>
+       <div className='form'>
+       <h1>Sign up</h1>  
 
-  <fieldset className='form-group'>
-   <App htmlFor='formName' title='Full Name:' />
+   <input id='form-name' className='form-name' name='name' type='text' onChange={this.handleChange} value={this.state.name} />
+   <br/>
+   <input id='formEmail' className='form-email' name='email' type='email'  onChange={this.handleChange} value={this.state.email} />
+  
 
-   <input id='formName' className='form-input' name='name' type='text' required onChange={this.handleChange} value={this.state.name} />
-  </fieldset>
-
-  <fieldset className='form-group'>
-   <App htmlFor='formEmail' title='Email:' />
-
-   <input id='formEmail' className='form-input' name='email' type='email' required onChange={this.handleChange} value={this.state.email} />
-  </fieldset>
-
-  <div className='form-group'>
-   <input id='formButton' className='btn' type='submit' placeholder='Send message' />
-  </div>
- </form>    
+ </div>    
        )
     }
     
     handleChange = (e) => {
  let newState = {};
-
+ console.log('e =', e, 'name=', e.target.name);
  newState[e.target.name] = e.target.value;
 
  this.setState(newState);
 };
 
-   handleSubmit = (e) => {
-    e.preventDefault();
+   
 
-    let formData = {
-    formSender: this.state.name,
-    formEmail: this.state.email
- }
-
- if (formData.formSender.length < 1 || formData.formEmail.length < 1) {
-  return false;
- }
-
- this.setState({
-  firstName: '',
-  lastName: '',
-  email: ''
- });
-};
 }
 export default Form;

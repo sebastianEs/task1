@@ -17,3 +17,5 @@ it('shallow render', () => {
     
  
 })
+// skriv test för att rendera form
+// skriv test för ClearData
