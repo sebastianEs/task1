@@ -6,8 +6,15 @@ describe('Button Component unit test', () =>{
     it('render Button Component', () =>{
         shallow(<Button/>);
     })
+    it('find buttonClass', () =>{
+        const wrapper=shallow(<Button/>);
+        expect(wrapper.find('button').hasClass('buttonClass')).toBe(true);
+    })
+    it('simulate button click', () =>{
+        const wrapper=shallow(<Button />);
+        wrapper.find('button').simulate('click');
+    })
     
 })
     
-    //  skriv test för ButtonClass
     

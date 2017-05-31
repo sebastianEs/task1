@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
+import App from './App.js';
 
 class Button extends Component {
     
-    handleClick(e) {
-        
-    }
+    
     render() {
         return (
         <div>
             <button className="buttonClass"
-            onClick={this.handleClick}
+            onClick={this.props.handleClick}
             >Eliminate personal information</button>
             </div>
         )

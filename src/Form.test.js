@@ -1,23 +1,25 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import Form from './Form.js';
+import App from './App.js';
 
 describe('Form component test suite', () => {
     
     test('Checking if Form exists', () => {
-        shallow(<Form />);
+        shallow(<App />);
     })
     test('render form, state.name=""', () => {
-        let wrapper = shallow(<Form/>);
+        let wrapper = mount(<App/>);
         let actual = wrapper.state('name');
         let expected =('');
         expect(actual).toBe(expected);
     })   
+        
+        
     test('user can change state.name', () => {
         const input= 'Sebastian'
-        let wrapper = shallow(<Form/>);
-        console.log(wrapper.find('.form-name').length)
-        wrapper.find('.form-name').first().simulate('change', {
+        let wrapper = mount(<App/>);
+        wrapper.find('input.form-name').simulate('change', {
             target: {
                 value: input,
                 name: 'name'
@@ -26,9 +28,23 @@ describe('Form component test suite', () => {
         
         });
         let actual = wrapper.state('name');
-        console.log(wrapper.state);
         expect(actual).toBe(input);
     })
         
+        
+    test('user can change state.email', () =>{
+        const inp ='myEmail@gmail.com';
+        let wrapper = mount(<App />);
+        wrapper.find('input.form-email').simulate('change', {
+            target: {
+                value: inp,
+                name: 'email'
+            }, 
+            type: 'change'
+        })
+        let actual = wrapper.state('email');
+        expect(actual).toBe(inp);
+    })
+        
 });
-    //  skriv test för Email 
+    

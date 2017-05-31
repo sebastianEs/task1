@@ -7,27 +7,37 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state={
-          name: this.props.name,
-          email: this.props.email
+          name: '',
+          email: ''
       }
+      this.handleClick = this.handleClick.bind(this);
+      this.handleChange = this.handleChange.bind(this);
   }
+    
+    handleClick() {
+        this.setState({
+            name: '',
+            email: ''
+        })
+    }
+    
+    handleChange(e){
+        console.log(this.state.name)
+       this.setState({
+            [e.target.name]: e.target.value
+        });
+    
+};
   render() {
     return (
       <div className="App">
-       <Form />
-        <Button/>
+       <Form name={this.state.name} email={this.state.email}/>
+        <Button handleClick={this.state.handleClick}/>
       </div>
     );
   }
 }
-/*
-clearData() {
-    this.setState({
-        name: '',
-        email: ''
-    })
-}
-*/
+
 
 
 export default App;
