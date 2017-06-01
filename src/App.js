@@ -22,16 +22,18 @@ class App extends Component {
     }
     
     handleChange(e){
-        console.log(this.state.name)
+
        this.setState({
             [e.target.name]: e.target.value
-        });
+        })
+        
+
     
 };
   render() {
     return (
       <div className="App">
-       <Form name={this.state.name} email={this.state.email}/>
+       <Form handleChange={this.handleChange} userName={this.state.name} userEmail={this.state.email}/>
         <Button handleClick={this.state.handleClick}/>
       </div>
     );

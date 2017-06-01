@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import Form from './Form.js';
-import App from './App.js';
+import Form from '../Form.js';
+import App from '../App.js';
 
 describe('Form component test suite', () => {
     
@@ -17,7 +17,7 @@ describe('Form component test suite', () => {
         
         
     test('user can change state.name', () => {
-        const input= 'Sebastian'
+        const input= 'Sebastian';
         let wrapper = mount(<App/>);
         wrapper.find('input.form-name').simulate('change', {
             target: {
@@ -28,6 +28,7 @@ describe('Form component test suite', () => {
         
         });
         let actual = wrapper.state('name');
+    
         expect(actual).toBe(input);
     })
         

@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow } from 'enzyme';
-import Button from './Button.js';
+import Button from '../Button.js';
+import App from '../App.js';
 
 describe('Button Component unit test', () =>{
     it('render Button Component', () =>{
@@ -14,7 +15,7 @@ describe('Button Component unit test', () =>{
         const wrapper=shallow(<Button />);
         wrapper.find('button').simulate('click');
     })
-    
+   
 })
     
     
