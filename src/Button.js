@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import App from './App.js';
 
 class Button extends Component {
     
@@ -9,6 +8,7 @@ class Button extends Component {
         <div>
             <button className="buttonClass"
             onClick={this.props.handleClick}
+            
             >Eliminate personal information</button>
             </div>
         )

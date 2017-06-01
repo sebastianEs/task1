@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import App from './App.js';
+
 
 class Form extends Component {
     
@@ -9,9 +9,9 @@ class Form extends Component {
        <div className='form'>
        <h1>Sign up</h1>  
 
-       <input className='form-name' placeholder='Your name...' name='name' type='text' onChange={this.props.handleChange} value ={this.props.name} />
+       <input className='form-name' placeholder='Your name...' name='name' type='text' onChange={this.props.handleChange} value ={this.props.userName} />
        <br/>
-       <input className='form-email' placeholder='Email address' name='email' type='email'  onChange={this.props.handleChange} value ={this.props.email} />
+       <input className='form-email' placeholder='Email address' name='email' type='email'  onChange={this.props.handleChange} value ={this.props.userEmail} />
   
 
  </div>    

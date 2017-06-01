@@ -3,6 +3,7 @@ import './App.css';
 import Form from './Form.js';
 import Button from './Button.js';
 
+
 class App extends Component {
   constructor(props) {
       super(props);
@@ -19,6 +20,7 @@ class App extends Component {
             name: '',
             email: ''
         })
+        console.log(this.state)
     }
     
     handleChange(e){
@@ -26,15 +28,25 @@ class App extends Component {
        this.setState({
             [e.target.name]: e.target.value
         })
-        
+
 
     
 };
   render() {
     return (
       <div className="App">
-       <Form handleChange={this.handleChange} userName={this.state.name} userEmail={this.state.email}/>
-        <Button handleClick={this.state.handleClick}/>
+       <Form 
+        handleChange={this.handleChange} 
+        userName={this.state.name} 
+        userEmail={this.state.email}
+        
+        />
+        <Button 
+        handleClick={this.handleClick} 
+        userName={this.state.name} 
+        userEmail={this.state.email}
+    
+        />
       </div>
     );
   }
