@@ -1,6 +1,6 @@
 # React js form
 
-This app was built with react js and tested with jest and ensyme.
+This app was built with react js and tested with Enzyme.
 
 # Task description
 
