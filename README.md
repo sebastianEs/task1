@@ -1,7 +1,7 @@
 # React js form
 
-# Description in swedish
-Skapa en ny webbapplikation. App-komponenten ska innehålla ett formulär där användaren kan fylla i namn och epostadress. Formuläret ska ligga i en egen komponent. När man skriver i något av formulärelementen så ska texten sparas i App-komponentens state. Skriv tester för komponenten innan du implementerar den.
-Skapa sedan en button som ligger i en egen komponent. När man klickar på den ska namn och epostadress rensas från App-komponentens state.
-Det ska finnas testfall som testar att formuläret innehåller input-element och att button-komponenten innehåller ett element med CSS-klassen "buttonClass". Använd Enzyme API.
-Webbapplikationen ska finnas i ett git-repository, som du lägger upp på GitHub. Du ska göra minst en commit med testfall innan du gör en commit med motsvarande implementation. (Commit test cases before you commit the implementation.) Det är för att jag ska kunna se att ni har använt TDD-metoden "red, green, refactor".*/
+This app was built with react js and tested with jest and ensyme.
+
+# Task description
+
+Create a new web application. The app component must contain a form where the user can fill in the name and email address. The form should be in a separate component. When writing in any of the form elements, the text must be saved in the App component state. Write tests for the component before implementing it. Then create a button that is in a separate component. When you click on it, the name and email address must be cleared from the App component state. There must be test cases that test that the form contains input elements and that the button component contains an element with the CSS class "buttonClass". Use the Enzyme API. The web application should be in a git repository, which you upload to GitHub. You should make at least one commit case test before making a commit with the corresponding implementation. (Commit test cases before you commit the implementation.) That is because I can see that you have used the TDD method "red, green, refactor".
