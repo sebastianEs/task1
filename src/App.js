@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from './Form.js';
 import Button from './Button.js';
+import Overlay from './overlay';
 
 
 class App extends Component {
@@ -9,44 +10,63 @@ class App extends Component {
       super(props);
       this.state={
           name: '',
-          email: ''
+          email: '',
+          password: '',
+          toggleOverlay: false,
       }
       this.handleClick = this.handleClick.bind(this);
       this.handleChange = this.handleChange.bind(this);
+      this.toggleOverlayHandler = this.toggleOverlayHandler.bind(this);
   }
+
+    toggleOverlayHandler() {
+      console.log('toggle overlay')
+      this.setState({toggleOverlay: !this.state.toggleOverlay});
+    }
     
     handleClick() {
         this.setState({
             name: '',
-            email: ''
+            email: '',
+            password: ''
         })
-        console.log(this.state)
     }
     
     handleChange(e){
-
-       this.setState({
-            [e.target.name]: e.target.value
-        })
-
-
-    
-};
+      this.setState({
+          [e.target.name]: e.target.value
+      })
+  };
   render() {
+    const { name, email, password, toggleOverlay } = this.state
+    console.log('state ',toggleOverlay);
     return (
-      <div className="App">
+      <div className={`container ${!toggleOverlay ? 'right-panel-active' : ''}`} id="container">
+        <Form 
+        handleChange={this.handleChange} 
+        userName={name} 
+        userEmail={email}
+        showNameInput={true}
+        showPasswordInput={true}
+        showSpan={true}
+        title={"Create account"}
+        formClassName={"sign-up-container"}
+        spanText={"Or register with email"}
+        button={<Button handleClick={this.handleClick} title={"Sign up"} />}
+        />
        <Form 
         handleChange={this.handleChange} 
-        userName={this.state.name} 
-        userEmail={this.state.email}
-        
-        />
-        <Button 
-        handleClick={this.handleClick} 
-        userName={this.state.name} 
-        userEmail={this.state.email}
-    
-        />
+        password={password} 
+        showPasswordInput={true}
+        showNameInput={false}
+        userEmail={email}
+        title={"Sign in"}
+        formClassName={"sign-in-container"}
+        spanText={"Or use your account"}
+        button={<Button handleClick={this.handleClick} title={"Sign in"} />}
+        userEmail={email}
+        title={toggleOverlay ? "Sign in" : "Sign up"} />
+        <Overlay toggleOverlay={this.toggleOverlayHandler} />
       </div>
     );
   }

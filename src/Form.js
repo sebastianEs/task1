@@ -1,20 +1,22 @@
 import React, {Component} from 'react';
 
-
 class Form extends Component {
-    
-    
     render() {
        return (
-       <div className='form'>
-       <h1>Sign up</h1>  
-
-       <input className='form-name' placeholder='Your name...' name='name' type='text' onChange={this.props.handleChange} value ={this.props.userName} />
-       <br/>
-       <input className='form-email' placeholder='Email address' name='email' type='email'  onChange={this.props.handleChange} value ={this.props.userEmail} />
-  
-
- </div>    
+           <div className={`form-container ${this.props.formClassName}`}>
+                <form action="#">
+                    <h1>{this.props.title}</h1>  
+                    <div className="social-icons">
+                        <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
+                        <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
+                    </div>
+                    <span>{this.props.spanText}</span>
+                    {this.props.showNameInput ? <input placeholder="Name" name='name' type='text' onChange={this.props.handleChange} value ={this.props.userName} /> : null  }
+                    <input placeholder='Email' name='email' type='email'  onChange={this.props.handleChange} value ={this.props.userEmail} />
+                    {this.props.showPasswordInput ? <input placeholder='Password' name='password' type='password' onChange={this.props.handleChange} value ={this.props.password} /> : null}
+                    {this.props.button}
+                </form>    
+           </div>
        )
     }
     
